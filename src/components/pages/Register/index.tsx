@@ -1,66 +1,61 @@
 import React from "react"
+import useCustomForm from "hooks/useCustomForm"
 
-export default class RegisterPage extends React.Component<any, any>{
-    constructor(props: any) {
-        super(props)
-        this.state = { email: "", password: "" }
 
-    }
+export default function RegisterPage() {
+    const initialState = { email: "", password: "" }
+    const [formData, onChangeInput] = useCustomForm(initialState)
 
-    onChangeInput = (e: any) => {
-        const { name, value } = e.target;
-        this.setState({ [name]: value })
-    }
+    return (
+        <React.Fragment>
+            <h1> Register </h1>
 
-    changeEmail = (e: any) => {
-        this.setState({ email: e.target.value })
-    }
-    render() {
-        return (
-            <React.Fragment>
-                <h1> Register </h1>
-                <form noValidate className="container">
-                    <div className="form-group">
-                        <label>Email address</label>
-                        <input
-                            name="email"
-                            className="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                            placeholder="Enter email"
-                            onChange={this.onChangeInput}
+            <form noValidate className="container">
+                <div className="form-group">
+                    <label>Email address</label>
+                    <input
+                        name="email"
+                        className="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        onChange={onChangeInput}
+                        value={formData.email}
 
-                            value={this.state.email}
-                        />
-                        <small id="emailHelp" className="form-text text-muted">
-                            We'll never share your email with anyone else.
+                    />
+                    <small id="emailHelp" className="form-text text-muted">
+                        We'll never share your email with anyone else.
                 </small>
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input
-                            name="password"
-                            className="form-control"
-                            id="exampleInputPassword1"
-                            placeholder="Password"
-                            onChange={this.onChangeInput}
-                            value={this.state.password}
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() => {
-                            console.log(this.state)
-                        }}
-                    >
-                        Register
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input
+                        name="password"
+                        className="form-control"
+                        id="exampleInputPassword1"
+                        placeholder="Password"
+                        onChange={onChangeInput}
+                        value={formData.password}
+
+                    />
+                </div>
+                <button
+                    onClick={() => {
+                        console.log("hook")
+                        console.log(formData)
+                    }}
+                    type="button"
+                    className="btn btn-primary"
+
+                >
+                    Register
               </button>
 
-                </form>
-            </React.Fragment>
-        );
-    }
+            </form>
+        </React.Fragment>
+
+    );
+
 }
 
 

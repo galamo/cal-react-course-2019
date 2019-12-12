@@ -2,7 +2,7 @@ import React from "react"
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap"
 import { AppLinks } from "components/appRouter"
 export default class CalNavbar extends React.Component<any, any>{
-
+    
     render() {
         return (<Navbar bg="light" expand="lg">
             <Navbar.Brand href="#home">Cal Course</Navbar.Brand>

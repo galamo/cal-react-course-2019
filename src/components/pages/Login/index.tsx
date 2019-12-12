@@ -1,15 +1,17 @@
 import React, { useState } from "react"
+import useCustomForm from "hooks/useCustomForm"
 
 export default function LoginPage() {
     console.log("login page rendered")
     const initialState = { email: "galamo@egmail", password: "124" }
-    const [state, setState] = useState(initialState)
+    // const [state, setState] = useState(initialState)
+    const [formData, onChangeInput] = useCustomForm(initialState)
     const [failedLogins, setFailedLogins] = useState(0)
 
-    const onChangeInput = (e: any) => {
-        const { name, value } = e.target;
-        setState({ ...state, [name]: value })
-    }
+    // const onChangeInput = (e: any) => {
+    //     const { name, value } = e.target;
+    //     setState({ ...state, [name]: value })
+    // }
 
     console.log("login before return")
     return (
@@ -26,7 +28,7 @@ export default function LoginPage() {
                         aria-describedby="emailHelp"
                         placeholder="Enter email"
                         onChange={onChangeInput}
-                        value={state.email}
+                        value={formData.email}
 
                     />
                     <small id="emailHelp" className="form-text text-muted">
@@ -41,7 +43,7 @@ export default function LoginPage() {
                         id="exampleInputPassword1"
                         placeholder="Password"
                         onChange={onChangeInput}
-                        value={state.password}
+                        value={formData.password}
 
                     />
                 </div>
