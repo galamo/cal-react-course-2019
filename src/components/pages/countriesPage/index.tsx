@@ -3,8 +3,9 @@ import data from "data.json"
 import HeaderTS from "components/ui-components/headerts"
 import CountriesList from "components/pages/countriesPage/countriesList"
 import axios from "axios"
-import axiosInstance from "../../../asyncService/axiosCountries";
+import axiosInstance from "asyncService/axiosCountries";
 import Filters from "./filters"
+import { withLoading } from "components/hoc/withLoading"
 
 interface IState {
     [key: string]: any
@@ -57,14 +58,16 @@ export default class CountriesPage extends React.Component<any, IState>{
     }
 
     render() {
+
         const filteredCountries = this.filterCountries()
+        const CountriesListWithLoading = withLoading(filteredCountries.length)(CountriesList)
+        // if (!filteredCountries.length) return <div className="loader"></div>
         return <div>
-            <span> {this.state.filters.country} </span>
-            <span> {this.state.filters.region} </span>
-            <span> {this.state.filters.hasBorders} </span>
+
             <HeaderTS title={this.state.selectedCountry} color="white" />
             <Filters onChangeInput={this.onChangeInput} filters={this.state.filters} />
-            <CountriesList selectCountry={this.selectCountry} countries={filteredCountries} />
+
+            <CountriesListWithLoading selectCountry={this.selectCountry} countries={filteredCountries} />
         </div>
     }
 

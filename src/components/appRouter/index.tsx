@@ -17,8 +17,7 @@ export default function AppRouter() {
     return (
         <>
             {/* route = { exact: true, path: "/", component: HomePage } */}
-
-            {routes.map((route) => <Route exact={true} path={route.path} component={route.component} />)}
+            {routes.map((route) => <Route key={route.path} exact={true} path={route.path} component={route.component} />)}
         </>
     )
 }
@@ -30,7 +29,7 @@ export function AppLinks() {
             {
                 routes.filter(route => route.visible).map((route) => {
                     const { path, title } = route;
-                    return <Link style={{ marginLeft:"20px" }} to={path}>{title}</Link>
+                    return <Link key={title} style={{ marginLeft: "20px" }} to={path}>{title}</Link>
                 })
             }
         </>
