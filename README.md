@@ -24,16 +24,16 @@
 - Region search - free text / dropdown
 - has borders - When has borders is checked only countries with borders will be presented
 
-# ex Routing
+## ex Routing
 
 - create registration page
 - add registration page to our routing
 
-# ex Controled components - Form
+## ex Controled components - Form
 
 - Create a registration user form
 
-# ex Axios request to register user
+## ex Axios request to register user
 
 - Implemenet registration using axios
 
@@ -45,6 +45,6 @@
 
 - payload: const { email, password }
 
-# ex Hooks
+## ex Hooks
 
 - convert the register form page to functional component using out custom hook
