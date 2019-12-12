@@ -24,6 +24,11 @@
 - Region search - free text / dropdown
 - has borders - When has borders is checked only countries with borders will be presented
 
+# ex Routing
+
+- create registration page
+- add registration page to our routing
+
 # ex Controled components - Form
 
 - Create a registration user form
@@ -40,4 +45,6 @@
 
 - payload: const { email, password }
 
-# ex HOC
+# ex Hooks
+
+- convert the register form page to functional component using out custom hook
