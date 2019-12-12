@@ -9,7 +9,7 @@ import CountriesPage from 'components/pages/countriesPage';
 // import explicitly HeaderApp
 const App: React.FC = () => {
     return (
-        <div className="App">
+        <div className="container">
             <CalNavbar />
             {/* <HeaderTS title={"Header"} color="yellow" /> */}
             <CountriesPage />
