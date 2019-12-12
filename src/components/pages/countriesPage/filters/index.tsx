@@ -1,7 +1,7 @@
 import React from "react"
 
 interface IProps {
-    onChangeInput: any,
+    onChangeInput: any
     filters: any
 }
 export default class Filters extends React.Component<IProps, any>{
@@ -21,11 +21,12 @@ export default class Filters extends React.Component<IProps, any>{
                         <label >Region</label>
                         <input onChange={onChangeInput} type="text" name="region" className="form-control" placeholder="text" />
                     </div>
-                    {/* <div className="form-group form-check">
-               <input type="checkbox" className="form-check-input" id="exampleCheck1">
-               <label className="form-check-label" for="exampleCheck1">Check me out</label>
-             </div> */}
-                    {/* <button type="submit" className="btn btn-primary">Submit</button> */}
+                    <div className="form-group form-check">
+                        <input type="checkbox" onChange={(e) => {
+                            onChangeInput({ target: { name: e.target.name, value: e.target.checked } })
+                        }} name="hasborders" className="form-check-input" />
+                    </div>
+
                 </form>
             </div>
         )

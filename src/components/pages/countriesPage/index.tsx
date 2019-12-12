@@ -10,18 +10,22 @@ interface IState {
     [key: string]: any
     countries: Array<any>
     selectedCountry: string,
-    filters: { country: string, region: string }
+    filters: { country: string, region: string, hasBorders: boolean }
 }
 
-export default class CountriesPage extends React.Component<any, any>{
+export default class CountriesPage extends React.Component<any, IState>{
 
     constructor(props: any) {
         super(props)
-        this.state = { countries: [], selectedCountry: "", filters: { country: "", region: "" } }
+        this.state = {
+            countries: [], selectedCountry: "",
+            filters: { country: "", region: "", hasBorders: false }
+        }
     }
 
     onChangeInput = (e: any) => {
         const { name, value } = e.target
+
         const { filters } = this.state
         this.setState({ ...this.state, filters: { ...filters, [name]: value } })
     }
@@ -57,6 +61,7 @@ export default class CountriesPage extends React.Component<any, any>{
         return <div>
             <span> {this.state.filters.country} </span>
             <span> {this.state.filters.region} </span>
+            <span> {this.state.filters.hasBorders} </span>
             <HeaderTS title={this.state.selectedCountry} color="white" />
             <Filters onChangeInput={this.onChangeInput} filters={this.state.filters} />
             <CountriesList selectCountry={this.selectCountry} countries={filteredCountries} />
