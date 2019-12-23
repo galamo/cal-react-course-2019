@@ -49,6 +49,14 @@
 
 ### POST <IP>:<PORT>/auth/login
 
+- http://10.103.51.77:3200/auth/login
+- payload: const { email, password }
+ {
+	"email":"gal11@ga11l.com",
+	"password":"gal123",
+	"first_name":"gal",
+	"last_name":"am"
+}
 - payload: const { email, password }
 
 ## ex Hooks
