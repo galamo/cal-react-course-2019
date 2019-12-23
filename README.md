@@ -38,8 +38,14 @@
 - Implemenet registration using axios
 
 ### POST <IP>:<PORT>/auth/register
-
+- http://10.103.51.77:3200/auth/register
 - payload: const { email, password }
+ {
+	"email":"gal11@ga11l.com",
+	"password":"gal123",
+	"first_name":"gal",
+	"last_name":"am"
+}
 
 ### POST <IP>:<PORT>/auth/login
 
