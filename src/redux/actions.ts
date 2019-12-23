@@ -13,3 +13,10 @@ export const ADD_TO_FAVORITES = (payload: { country: any }) => {
         payload
     }
 }
+
+export const GET_FLIGHTS_SUCCESS = (payload: { flights: Array<any> }) => {
+    return {
+        type: ACTIONS.GET_FLIGHTS_SUCCESS,
+        payload
+    }
+}

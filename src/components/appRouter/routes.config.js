@@ -5,34 +5,41 @@ import CountriesPage from "components/pages/countriesPage";
 import LoginPage from "components/pages/Login";
 import RegisterPage from "components/pages/Register";
 import CountryPage from "components/pages/CountryPage";
+import FlightsPage from "components/pages/FlightsPage"
 
 export const routes = [
-  {
-    visible: true,
-    title: "Home",
-    exact: true,
-    path: "/",
-    component: HomePage
-  },
-  {
-    visible: true,
-    title: "Countries",
-    exact: true,
-    path: "/countries",
-    component: CountriesPage
-  },
-  { visible: true, title: "Login", path: "/login", component: LoginPage },
-  {
-    visible: true,
-    title: "Register",
-    path: "/register",
-    component: RegisterPage
-  },
-  {
-    visible: false,
-    title: "Register",
-    path: "/country/:code",
-    component: CountryPage
-  }
-  // { visible: false, path: "*", component: () => <h1>Not Found</h1> }, enable this will cause component render
+    {
+        visible: true,
+        title: "Home",
+        exact: true,
+        path: "/",
+        component: HomePage
+    },
+    {
+        visible: true,
+        title: "Countries",
+        exact: true,
+        path: "/countries",
+        component: CountriesPage
+    },
+    { visible: true, title: "Login", path: "/login", component: LoginPage },
+    {
+        visible: true,
+        title: "Register",
+        path: "/register",
+        component: RegisterPage
+    },
+    {
+        visible: false,
+        title: "Register",
+        path: "/country/:code",
+        component: CountryPage
+    },
+    {
+        visible: true,
+        title: "Flights",
+        path: "/flights",
+        component: FlightsPage
+    }
+    // { visible: false, path: "*", component: () => <h1>Not Found</h1> }, enable this will cause component render
 ];

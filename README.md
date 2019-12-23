@@ -70,5 +70,15 @@
 - convert the register form page to functional component using out custom hook
 
 ## redux
-- npm install redux react-redux thunk @types/react-redux @types/redux
+- npm install redux react-redux redux-thunk @types/react-redux @types/redux
 - install redux dev tools in chrome
+
+
+## ex redux
+- GET http://localhost:3200/flights/customers { authorization: token }
+- Create customersReducers
+- Create Async action GET_CUSTOMERS
+- Create Sync Actions for Success, Error and pending
+- Create client route Customers
+- Execute nitial request on component mounted, useffect
+ 

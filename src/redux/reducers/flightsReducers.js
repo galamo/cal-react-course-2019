@@ -9,6 +9,12 @@ function flightsReducers(state = initialState, action) {
     if (!type) return;
     switch (type) {
 
+        case ACTIONS.GET_FLIGHTS_SUCCESS: {
+            const { payload } = action;
+            const { flights } = payload
+            return { ...state, flights }
+        }
+
         default: {
             return state;
         }
