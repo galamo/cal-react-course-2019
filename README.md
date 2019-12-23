@@ -69,4 +69,5 @@
 
 - convert the register form page to functional component using out custom hook
 
-
+## redux
+- npm install redux react-redux thunk @types/react-redux @types/redux
