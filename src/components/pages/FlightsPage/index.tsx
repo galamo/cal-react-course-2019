@@ -7,9 +7,10 @@ export default function FlightsPage(props: any) {
     useEffect(() => {
         dispatch(GET_FLIGHTS())
     }, [])
-    const { flightsReducers } = useSelector((state: any) => state)
-    console.log(flightsReducers)
-    const { flights } = flightsReducers
+    const { flights } = useSelector((state: any) => state.flightsReducers)
+    // console.log(flightsReducers)
+    // const { flights } = flightsReducers
+    if (!flights.length) return <h2>loading...</h2>
     return <div> <h1 className="jumbotron">Flights</h1>
         <div>
             {flights.map((flight: any) => <> <div style={{ border: "1px solid black", marginTop: "10px" }}><h2>{flight.from} </h2> <h2>{flight.to} </h2></div></>)}

@@ -6,7 +6,8 @@ import LoginPage from "components/pages/Login";
 import RegisterPage from "components/pages/Register";
 import CountryPage from "components/pages/CountryPage";
 import FlightsPage from "components/pages/FlightsPage"
-
+import CustomersPage from "components/pages/CustomersPage";
+import { withAuth } from "components/hoc/withAuth";
 export const routes = [
     {
         visible: true,
@@ -39,7 +40,16 @@ export const routes = [
         visible: true,
         title: "Flights",
         path: "/flights",
-        component: FlightsPage
+        component: (props) => {
+            const RouteWithAuth = withAuth(FlightsPage);
+            return <RouteWithAuth {...props} />
+        }
+    },
+    {
+        visible: true,
+        title: "Customers",
+        path: "/customers",
+        component: CustomersPage
     }
     // { visible: false, path: "*", component: () => <h1>Not Found</h1> }, enable this will cause component render
 ];

@@ -1,20 +1,24 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
+import axios from "axios"
+export const withAuth = (WrappedComponent: any) => {
+    return function (props: any) {
+        const [status, setStatus] = useState("loading")
 
-export const withAuth = (isAuth: any) => (WrappedComponent: any) => {
-    return class LoadingHOC extends React.Component<any, any>{
-        render() {
-            console.log(this.props)
-            if (!localStorage.getItem("token")) return <Redirect to={"/login"} />
-            return <WrappedComponent {...this.props} />
-        }
+        useEffect(() => {
+            const verify = async () => {
+                const result = await axios.get("http://localhost:3200/auth/verify", {
+                    headers: { authorization: localStorage.getItem("token") }
+                })
+                const { data } = result;
+                const { status } = data;
+                setStatus(status)
+            }
+            verify()
+        }, [])
+
+        if (!status) return <Redirect to="/login" />
+        if (status === "loading") return <div className="loader"></div>
+        return <WrappedComponent {...props} />
     }
 }
-
-// export const withLoading = (loadingProps: any) => (WrappedComponent: any) => {
-//     return class LoadingHOC extends React.Component<any, any>{
-//         render() {
-//             return !loadingProps ? <div className="loader"></div> : <WrappedComponent  />
-//         }
-//     }
-// } 
