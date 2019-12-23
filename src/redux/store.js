@@ -1,7 +1,9 @@
-import { createStore } from "redux" // applyMiddle, combine
+import { createStore, combineReducers, compose } from "redux" // applyMiddle, combine
 
-import { mainReducers } from "./reducers/mainReducers"
-//reducer
-const store = createStore(mainReducers)
 
+// import reducers
+import storeImports from "./store.imports"
+
+const composeDevTool = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(combineReducers(storeImports.reducers), composeDevTool())
 export default store;

@@ -4,7 +4,7 @@ import CountryCard from "../countryCard"
 
 interface IProps {
     countries: Array<any>,
-    selectCountry: Function
+    selectCountry?: Function
 }
 export default class CountriesList extends React.Component<IProps, any>{
 

@@ -71,3 +71,4 @@
 
 ## redux
 - npm install redux react-redux thunk @types/react-redux @types/redux
+- install redux dev tools in chrome

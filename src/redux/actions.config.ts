@@ -1,3 +1,4 @@
 export default {
-    SAVE_TOKEN: "SAVE_TOKEN"
+    SAVE_TOKEN: "SAVE_TOKEN",
+    ADD_TO_FAVORITES: "ADD_TO_FAVORITES"
 }

@@ -6,3 +6,10 @@ export const SAVE_TOKEN = (payload: { token: string }) => {
         payload
     }
 }
+
+export const ADD_TO_FAVORITES = (payload: { country: any }) => {
+    return {
+        type: ACTIONS.ADD_TO_FAVORITES,
+        payload
+    }
+}
