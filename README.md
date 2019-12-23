@@ -75,7 +75,8 @@
 
 
 ## ex redux
-- GET http://localhost:3200/flights/customers { authorization: token }
+### Customers Page 
+- GET http://10.103.51.77:3200/flights/customers { authorization: token }
 - Create customersReducers
 - Create Async action GET_CUSTOMERS
 - Create Sync Actions for Success, Error and pending
