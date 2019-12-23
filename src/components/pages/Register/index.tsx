@@ -1,6 +1,6 @@
 import React from "react";
 import useCustomForm from "hooks/useCustomForm";
-import axios from "axios"
+
 import { axiosAuth } from "asyncService/axiosCountries"
 export default function RegisterPage(props: any) {
     const initialState = { email: "", password: "", first_name: "gal", last_name: "a" };
