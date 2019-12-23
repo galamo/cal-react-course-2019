@@ -8,6 +8,7 @@ export default function CountryPage(props: any) {
     const [counter, setCounter] = useState(0)
     const [code, setCode] = useState(params.code)
     // navigate to countries
+   
 
     useEffect(() => {
         async function getCountry() {

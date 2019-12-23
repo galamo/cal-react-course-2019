@@ -1,18 +1,19 @@
 import React from "react"
+import { useSelector } from "react-redux"
+// const reduxState = useSelector((state: { token: string }) => state.token)
 
-export default class HomePage extends React.Component<any, any>{
-    constructor(props: any) {
-        super(props)
-        // if (!localStorage.getItem("token")) {
-        //     this.props.history.push("/login")
-        // }
-    }
-    render() {
+export default function HomePage() {
+    const token = useSelector((state: { token: string }) => state.token)
 
-        return <div className="container">
-            <h1>
-                Home component
+
+    return <div className="container">
+        <h1>
+            Home component
+
             </h1>
-        </div>
-    }
+        <span>
+            {token}
+        </span>
+    </div>
+
 }

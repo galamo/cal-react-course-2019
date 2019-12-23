@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import useCustomForm from "hooks/useCustomForm";
 import { axiosAuth } from "asyncService/axiosCountries"
-
+import { useSelector, useDispatch } from "react-redux"
+import { SAVE_TOKEN } from "redux/actions"
 export default function LoginPage(props: any) {
     console.log("login page rendered");
     const initialState = { email: "gal@walla.com", password: "1234" };
     // const [state, setState] = useState(initialState)
     const [formData, onChangeInput] = useCustomForm(initialState);
     const [failedLogins, setFailedLogins] = useState(0);
-
+    const dispatch = useDispatch();
 
     const login = async () => {
         const result = await axiosAuth.post("/login", formData)
         const { data } = result;
         const { token } = data;
         if (token) {
+            // i got the token
+            dispatch(SAVE_TOKEN({ token }))
             localStorage.setItem("token", token);
             props.history.push("/countries")
         }
