@@ -59,6 +59,14 @@
 }
 - payload: const { email, password }
 
+
+### GET <IP>:<PORT>/flights
+- authorization header
+- jwt token
+- { authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYWwxMUBnYTExbC5jb20iLCJwYXNzd29yZCI6bnVsbCwiZmlyc3RfbmFtZSI6bnVsbCwibGFzdF9uYW1lIjpudWxsLCJpYXQiOjE1NzcwODgzODIsImV4cCI6MTU3NzA5MTk4Mn0._gtsNX16ec8ZdhQbCNEF0kzWnn1AmU9h_aOnKYyiNUo" }
+
 ## ex Hooks
 
 - convert the register form page to functional component using out custom hook
+
+
